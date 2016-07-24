@@ -8,24 +8,18 @@ This script ir a result of an assingment in the end of the course Getting and Cl
 4. Appropriately labels the data set with descriptive variable names.
 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-# run_analysis.R
+# Variables
+* features, activityLabels, xTrain, yTrain, subjectTrain, xTest, yTest, subjectTest contains data read from the files. 
+ * names of features and activity were changed to be more readable
+* featuresSelected - variables with measures of the mean and std
+* trainSetMeanStd and testSetMeanStd- Train and Test, respectively, sets with only the variables selected
+ * names type (V1, V2... ) were substituted by the features it represents
+ * Included in the data set the activity number, subjec and the set of origin (Train or Test, depending on the case)
+* tidySet - the merge of Train and Test sets
+ * Create a variable with name of activity
+ * Reorder the variables to put caracteristics of the measure first
+* bySubjectActivity - data set grouped by subject and activity
+* meanOfTidySet - calculates the mean of each variable by subject and activity
+ * Excluded unused variables
 
-The script follows these steps:
 
-* Download the file and unzip it, if needed
-* Read the files
-  * Train Set
-  * Test Set
-  * Activities
-  * Features
-  * Subject
-* Select only the Mean and Std features, as defined in the instructions
-* It creates two variables - trainSetMeanStd and testSetMeanStd with only the variables needed, including activity and subject data
-  * Substitute the names of the variables to meaningful names
-* Merges Train and Test sets
-  * Put names in a standard format and order to facilitate visualization
-* Using dplyr package:
-  * Group by subject and activity
-  * Generates a data set with the means of each mesure by subject and activity
-* Write txt file - meanOfTidySetMeanStdTrainTestAllMeasuresByActivitySubject.txt
-  
